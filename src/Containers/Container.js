@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import Name from '../Components/Name';
+import Input from '../Components/Input';
 
 const Container = () => {
 
     const [name, setName] = useState('John');
 
-    const handleChange = () => {
-        const input = document.getElementById('nameInput').value;
-        setName(input);
+    const handleChange = (value) => {
+        setName(value);
     }
 
     return (
         <div>
             <Name name={name} />
-            <input type="text" id='nameInput' />
-            <button onClick={handleChange}>Submit</button>
+            <Input callback={()=>handleChange} />
         </div>
     )
 }
